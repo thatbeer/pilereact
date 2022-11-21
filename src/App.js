@@ -1,23 +1,25 @@
+import { Route,Routes } from 'react-router-dom'
 
 
-import './App.css'
+import LoginForm from './component/login/loginForm'
+import Header from './component/header/header'
+import Page404 from './page/error404'
+import MainPage from './component/home/mainpage'
 
-import LoginForm from './component/loginForm'
-import SpinnerAnimate from './utils/component/spinner.utils'
-import Navigation from './component/navigation'
+
+
 
 function App() {
   
 
   return (
-    <div className="App">
-      <Navigation/>
-      
-      <div className='container' >
-        <LoginForm/>
-
-      </div>
-    </div>
+    <Routes>
+      <Route path='/' element={<Header/>} >
+        <Route index element={<LoginForm/>} />
+        <Route path='main' element={<MainPage/>} />
+        <Route path='*' element={<Page404/>} />
+      </Route>
+    </Routes>
   )
 };
 
