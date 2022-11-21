@@ -3,20 +3,66 @@ import { LinkContainer } from "react-router-bootstrap";
 import {Button} from "react-bootstrap";
 import './header.css'
 import { Outlet } from "react-router-dom";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
+
+    const token = localStorage.getItem('accessToken');
+    
+    const navigate = useNavigate();
+
+    const SignOutHandler = () => {
+        localStorage.removeItem("accessToken");
+        localStorage.removeItem("user");
+        navigate('/');
+    };
+
+    const checkifuserIn = () => {
+        return  localStorage.getItem("accessToken");
+    }
+    
+    useEffect(() => {
+        const response = checkifuserIn();
+        if (response) {
+          navigate('/main')
+        } else {
+            navigate('/')  
+        }
+    }, []);
+
+
+
     return (
         <>
             <Navbar bg="light" expand="flase" sticky='top' className='Nav-container'>
                 <div className="d-flex d-flex-col">
-                    <LinkContainer to="/">
-                        <Navbar.Brand href="#home" className="mx-3">React-Bootstrap-logo</Navbar.Brand>
+                    { token ? 
+                    <Navbar.Brand href="" className="mx-3">React-Bootstrap-logo</Navbar.Brand> : 
+                    <LinkContainer><Navbar.Brand href="#" className="mx-3">React-Bootstrap-logo</Navbar.Brand></LinkContainer>
+                        
+                    }
+                
+                    <LinkContainer to='/main'>
+                    <Nav.Link href="#" className="mx-3 my-2">Mainpage</Nav.Link>
                     </LinkContainer>
 
-                    <LinkContainer to='/main'>
-                    <Nav.Link href="#home" className="mx-3 my-2">Main</Nav.Link>
+                    <LinkContainer to='/sub'>
+                    <Nav.Link href="#" className="mx-3 my-2">Subpage</Nav.Link>
+                    </LinkContainer>
+
+                    {/* <LinkContainer to='/card'>
+                    <Nav.Link href="#" className="mx-3 my-2">Cardpage</Nav.Link>
+                    </LinkContainer> */}
+                    
+                    <LinkContainer to='/test'>
+                    <Nav.Link href="#" className="mx-3 my-2">Process(testsubpage)</Nav.Link>
                     </LinkContainer>
                 
+                    <LinkContainer to='/detail'>
+                    <Nav.Link href="#" className="mx-3 my-2">DetailPage</Nav.Link>
+                    </LinkContainer>
+
                 </div>
             
 
@@ -37,9 +83,7 @@ const Header = () => {
                         <LinkContainer to='/report'>
                             <Nav.Link>Report</Nav.Link>
                         </LinkContainer>
-                        <LinkContainer to='/report'>
-                            <Nav.Link>Logout</Nav.Link>
-                        </LinkContainer>
+                        <Nav.Item onClick={SignOutHandler} className="hover:opacity-60 hover:underline hover:cursor-pointer" >Logout</Nav.Item>
                     </Nav>
                 </Navbar.Collapse>   
             </Navbar>

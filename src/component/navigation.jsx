@@ -1,6 +1,34 @@
+import { useNavigate } from 'react-router-dom';
 import './navigation.css'
+import { useEffect } from 'react';
 
 const Navigation = () => {
+
+    const navigate = useNavigate();
+
+    const SignOutHandler = () => {
+        localStorage.removeItem("accessToken");
+        localStorage.removeItem("user");
+        navigate('/');
+    };
+
+    const checkifuserIn = () => {
+        return  localStorage.getItem("accessToken");
+    }
+    
+    useEffect(() => {
+        const response = checkifuserIn();
+        if (response) {
+          navigate('/main')
+        } else {
+            navigate('/')  
+        }
+    }, []);
+    
+
+
+      
+    
 
     return (
         <div className='tagis'>
@@ -35,7 +63,7 @@ const Navigation = () => {
                         <li><a class="dropdown-item" href="#">Settings</a></li>
                         <li><a class="dropdown-item" href="#">Profile</a></li>
                         <li><hr class="dropdown-divider"/></li>
-                        <li><a class="dropdown-item" href="#">Sign out</a></li>
+                        <li><p onClick={SignOutHandler}>Logout</p></li>
                     </ul>
                     </div>
                 </div>
