@@ -11,7 +11,7 @@ const PrivateRoute = () => {
     // }, []);
     
     return (
-        token ? <Header/> : <Navigate to="/"/>
+        token ? <Header/> : <Navigate to="/login"/>
     )
 };
 

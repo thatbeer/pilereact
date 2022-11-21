@@ -1,6 +1,6 @@
 import { Navbar,Nav, Form } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
-import {Button} from "react-bootstrap";
+
 import './header.css'
 import { Outlet } from "react-router-dom";
 import { useEffect } from "react";
@@ -38,8 +38,8 @@ const Header = () => {
             <Navbar bg="light" expand="flase" sticky='top' className='Nav-container'>
                 <div className="d-flex d-flex-col">
                     { token ? 
-                    <Navbar.Brand href="" className="mx-3">React-Bootstrap-logo</Navbar.Brand> : 
-                    <LinkContainer><Navbar.Brand href="#" className="mx-3">React-Bootstrap-logo</Navbar.Brand></LinkContainer>
+                    <Navbar.Brand  className="mx-3">React-Bootstrap-logo</Navbar.Brand> : 
+                    <LinkContainer to='/'><Navbar.Brand className="mx-3">React-Bootstrap-logo</Navbar.Brand></LinkContainer>
                         
                     }
                 
@@ -47,9 +47,7 @@ const Header = () => {
                     <Nav.Link href="#" className="mx-3 my-2">Mainpage</Nav.Link>
                     </LinkContainer>
 
-                    <LinkContainer to='/sub'>
-                    <Nav.Link href="#" className="mx-3 my-2">Subpage</Nav.Link>
-                    </LinkContainer>
+                    
 
                     {/* <LinkContainer to='/card'>
                     <Nav.Link href="#" className="mx-3 my-2">Cardpage</Nav.Link>

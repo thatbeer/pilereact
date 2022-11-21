@@ -9,6 +9,7 @@ import Subpage from './page/subpage';
 import Cardbox from './component/card/card';
 import DetailPage from './component/detail/detailpage';
 import ProcessPage from './page/processpage';
+import PrivateRoute from './utils/component/Authented';
 
 
 
@@ -35,6 +36,7 @@ function App() {
         {/* <Route path='card' element={<Cardbox/>} /> */}
         <Route path='detail' element={<DetailPage/>} />
         <Route path='test/*' element={<ProcessPage/>} /> 
+        <Route path="pre" element={<PrivateRoute/>} />
       </Route>
       <Route path='*' element={<Page404/>} />
     </Routes>

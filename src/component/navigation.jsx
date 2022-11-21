@@ -21,7 +21,7 @@ const Navigation = () => {
         if (response) {
           navigate('/main')
         } else {
-            navigate('/')  
+            navigate('/login')  
         }
     }, []);
     
