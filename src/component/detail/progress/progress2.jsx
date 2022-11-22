@@ -15,8 +15,8 @@ const Progress2 = () => {
                     </thead>
                     <tbody>
                         <tr>
-                            <th>วันที่เริ่ม</th>
-                            <td>20 ส.ค. 2565 (09:10)</td>
+                            <th className="col-2">วันที่เริ่ม</th>
+                            <td className="col-6">20 ส.ค. 2565 (09:10)</td>
                         </tr>
                         <tr>
                             <th>วันที่เสร็จ</th>
@@ -58,12 +58,12 @@ const Progress2 = () => {
                 <tbody>
                     <tr>
                         <th colSpan={1}>Note จะขึ้นแถบบสีแดงเมื่อ<br/>มีการป้อนข้อมูลในหมายเหตุ</th>
-                        <td colSpan={2} className="green" >หกหก</td>
+                        <td colSpan={2} className="green col-8" >หกหก</td>
                     </tr>
                 </tbody>
                 </Table>
 
-                <h4>ข้อมูลจะขึ้นแถบสีแดงเมื่อ</h4>
+                <h4 className="text-md">ข้อมูลจะขึ้นแถบสีแดงเมื่อ</h4>
                 <li>ไม่ได้เช็คลูกดิ่งและ/หรือเช็คระดับน้ำในขณะที่ทำการปักเคสซิ่ง</li>
             <hr/>
             </div>

@@ -38,7 +38,7 @@ const Header = () => {
             <Navbar bg="light" expand="flase" sticky='top' className='Nav-container'>
                 <div className="d-flex d-flex-col">
                     { token ? 
-                    <Navbar.Brand  className="mx-3">React-Bootstrap-logo</Navbar.Brand> : 
+                    <LinkContainer to='/main'><Navbar.Brand className="mx-3">React-Bootstrap-logo</Navbar.Brand></LinkContainer> : 
                     <LinkContainer to='/'><Navbar.Brand className="mx-3">React-Bootstrap-logo</Navbar.Brand></LinkContainer>
                         
                     }

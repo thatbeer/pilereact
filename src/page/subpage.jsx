@@ -3,6 +3,7 @@ import {GrDocumentPdf} from 'react-icons/gr'
 import { FormControl } from "react-bootstrap";
 import { Outlet } from "react-router-dom";
 import Cardbox from "../component/card/card";
+import PileProgress from "../component/pileprogress/pileprogress";
 // this page suppose to recieve props from a previous history
 // which may look like subpage = ({props}) for contructing the page
 // based on props data
@@ -36,8 +37,8 @@ const Subpage = () => {
 
             </Alert> */}
 
-            <div className="container mt-6 bg-emerald-200 py-2">
-                <div className="search-bar col-6 mx-auto my-2" >
+            <div className="container mt-6 py-2">
+                <div className="search-bar col-9 mx-auto my-2" >
                     <InputGroup>
                         <FormControl
                             type='search'
@@ -49,25 +50,30 @@ const Subpage = () => {
                 </div>
                 <div className="d-flex justify-content-between 
                 text-center content-center align-items-center col-10 mx-auto mt-6 " >
+                    
+                    <Button style={{ width: '8rem' , height: '4rem ' }}>ทำค้าง</Button>
+                    <button>
                     <Card style={{ width: '10rem' , height: '5rem' }}>
-                    <Card.Body><button><h2>title</h2></button></Card.Body>
-                    </Card>
+                    <Card.Body><h2>เสร็จแล้ว</h2></Card.Body>
+                    </Card></button>
+                    <button>
                     <Card style={{ width: '10rem' , height: '5rem' }}>
-                        <Card.Body><button><h2>title</h2></button></Card.Body>
-                    </Card>
-                    <Card style={{ width: '10rem' , height: '5rem' }} >
-                    <Card.Body><button><h2>title</h2></button></Card.Body>
-                    </Card>
+                    <Card.Body><h2>รอส่งERP</h2></Card.Body>
+                    <Card.Img variant="bottom" src="../assets/loading.png/100px180" />
+                    </Card></button>
+                    <button>
                     <Card style={{ width: '10rem' , height: '5rem' }}>
-                    <Card.Body><button><h2>title</h2></button></Card.Body>
-                    </Card>
+                    <Card.Body><h2>เขียว-แดง</h2></Card.Body>
+                    <Card.Img variant="bottom" src="../assets/loading.png" />
+                    </Card></button>
                 </div>
             </div>
             <div className="container mt-10 bg-slate-300">
                 <h1>Body</h1>
-                <Cardbox/>
+                {/* <Cardbox/> */}
 
             </div>
+            <PileProgress/>
         </>
     )
 };

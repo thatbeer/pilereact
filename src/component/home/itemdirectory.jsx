@@ -1,6 +1,7 @@
 import { Card } from 'react-bootstrap';
 import { Dropdown } from 'react-bootstrap';
-
+import {SiBitcoincash} from 'react-icons/si'
+import {TbSend} from 'react-icons/tb'
 import './itemdirectory.css'
 
 
@@ -16,15 +17,17 @@ const ItemDirectory = ({ items }) => {
             
             <div className="container mt-10 mx-auto" >
                 <Card style={{ width: '60rem' }} className='ml-5'>
-                    <Card.Body>
-                        <Card.Title className="mt-2">
+                    <Card.Header className="text-xl bold"><Link>{title}</Link></Card.Header>
+                    <Card.Body className='p-1'>
+                        {/* <Card.Title className="mt-2">
                          <Link>{title}</Link>
+                         
                          <hr/>
-                        </Card.Title>
+                        </Card.Title> */}
                         
                         <div className='d-flex d-flex-col mt-4'>
-                        <Card.Text className="mx-2">รอส่ง: <Card.Link href="#"> 0 ต้น</Card.Link></Card.Text>
-                        <Card.Text className="mx-2">สำเร็จ: <Card.Link href="#"> 0 ต้น</Card.Link></Card.Text>
+                        <Card.Text className="mx-2 flex"><TbSend className='mx-2 ' color="red" size={20}/>รอส่ง: <Card.Link href="#"> 0 ต้น</Card.Link></Card.Text>
+                        <Card.Text className="mx-2 flex "><SiBitcoincash className='mx-2 ' color="orange" size={20}/> สำเร็จ: <Card.Link href="#"> 0 ต้น</Card.Link></Card.Text>
                         { extra ? 
                             <Dropdown className='mt-0 ml-auto '>
                                 <Dropdown.Toggle varaint="success">Area</Dropdown.Toggle>

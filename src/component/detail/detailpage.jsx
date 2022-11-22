@@ -10,24 +10,19 @@ import Progress8 from "./progress/progress8";
 import Progress9 from "./progress/progress9";
 import Progress11 from "./progress/progress11";
 import Progress10 from "./progress/progress10";
+import Progress4 from "./progress/progress4";
+import Progress6 from "./progress/progress6";
 
 const DetailPage = () => {
     return (
         <>
             <Progress0/>
-
-            
             <Progress1/>
-            
-
             <Progress2/>
-
-
-
-
             <Progress03/>
-
+            <Progress4/>
             <Progress5/>
+            <Progress6/>
             <Progress7/>
             <Progress8/>
             <Progress9/>

@@ -5,7 +5,7 @@ const Progress0 = () => {
     return(
         <>
             <h1>Detail page</h1>
-            <div className="container mx-auto my-2 col-10 bg-orange-300 rounded-top">
+            <div className="container mx-auto my-2 col-10">
 
 
                 <Table striped bordered responsive="sm">

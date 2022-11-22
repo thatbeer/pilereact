@@ -7,7 +7,7 @@ const Progress11 = () => {
         <>
             <div className="container mx-auto my-5 col-10 ">
             <h2>11. ถอนเคสซิ่ง</h2>
-            <Table striped bordered responsive="sm">
+            <Table striped="columns" bordered responsive="sm">
                 <thead>
                     <tr>
                         <th colSpan={4}>ข้อมูลการถอนเคสซิ่ง</th>
@@ -16,7 +16,7 @@ const Progress11 = () => {
                 <tbody>
                     <tr>
                         <th>วันที่เริ่ม</th>
-                        <td colSpan={4}>sdadsadsadsadsaddddddddddsdsdsdsdsdsd</td>
+                        <td colSpan={4} className="col-7">sdadsadsadsadsaddddddddddsdsdsdsdsdsd</td>
                     </tr>
                     <tr>
                         <th>วันที่เสร็จ</th>

@@ -16,7 +16,7 @@ const Progress8 = () => {
                 </thead>
                 <tbody>
                     <tr>
-                        <th>วันที่เริ่ม</th>
+                        <th className="col-4">วันที่เริ่ม</th>
                         <td>20 ส.ค. 2565 (11:25)</td>
                     </tr>
                     <tr>
@@ -48,16 +48,16 @@ const Progress8 = () => {
                 <li>{"[ความลึกวัดจากปากเคสซิ่งของการเจาะครั้งสุดท้าย - 1.5 ม.] < [ความยาวท่อเทรมีรวม] < [ความลึกวัดจากปากเคสซิ่งของการเจาะครั้งสุดท้าย]"} </li>
             </div>
 
-            <div className="container mx-auto my-2 col-10 ">
-            <div className="row border border-black bg-slate-300">
-                <div className="col border border-black">
-                    <div className="col-12"><p>Note จะขึ้นแถบสีแดง</p><p>เมื่อมีการป้อนข้อมูลในหมายเหตุ</p></div>
-                </div>
-                <div className="col-8 bg-green-600"></div>
-                </div>
-            </div>
             
             <div className="container mx-auto my-1 col-10 ">
+            <Table bordered>
+                <tbody>
+                    <tr>
+                        <th colSpan={1}>Note จะขึ้นแถบบสีแดงเมื่อ<br/>มีการป้อนข้อมูลในหมายเหตุ</th>
+                        <td colSpan={2} className="green col-8" >หกหก</td>
+                    </tr>
+                </tbody>
+            </Table>
         
             <Table striped bordered responsive="sm">
                 <thead>
@@ -89,6 +89,9 @@ const Progress8 = () => {
             <div className="container mx-auto my-0 col-10 ">
                 <h4>ข้อมูลจะขึ้นแถบสีแดงเมื่อขนาดท่อเทรมี่ไม่ได้อยู่ในเงื่อนไขดังต่อไปนี้</h4>
                 <li>{"กรณีเสาเข็มมีขนาด 0.6 ม.< ∅ ≤ 1 ม. ควรใช้ขนาดท่อเทรมี่ ∅ = 10 นิ้ว"}</li>
+                
+            
+            
             <hr/>
             </div>
         </>

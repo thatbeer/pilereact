@@ -13,7 +13,7 @@ const Progress1 = () => {
                     </thead>
                     <tbody>
                         <tr>
-                            <th>วันที่เริ่ม</th>
+                            <th className="col-5">วันที่เริ่ม</th>
                             <td>20 ส.ค. 2565 (09:11)</td>
                         </tr>
                         <tr>
@@ -82,11 +82,11 @@ const Progress1 = () => {
                 <tbody>
                     <tr>
                         <th colSpan={1}>Note จะขึ้นแถบบสีแดงเมื่อ<br/>มีการป้อนข้อมูลในหมายเหตุ</th>
-                        <td colSpan={2} className="green" >หกหก</td>
+                        <td colSpan={2} className="green col-8" >หกหก</td>
                     </tr>
                 </tbody>
                 </Table>
-
+            <hr/>
             </div>
             
 

@@ -17,7 +17,7 @@ const Progress9 = () => {
                 </thead>
                 <tbody>
                     <tr>
-                        <th>ยี่ห้อคอนกรีต</th>
+                        <th className="col-4">ยี่ห้อคอนกรีต</th>
                         <td>โออาร์ซี</td>
                     </tr>
                     <tr>

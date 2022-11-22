@@ -5,7 +5,7 @@ const Progress03 = () => {
 
         <>
             <div className="container mx-auto my-2 col-10 
-            bg-slate-300  border border-b">
+            ">
                 <h2>3. วัดตำแหน่งก่อนเจาะ</h2>
                 <Table striped bordered responsive="sm">
                     <thead>
@@ -15,7 +15,7 @@ const Progress03 = () => {
                     </thead>
                     <tbody>
                         <tr>
-                            <th>วันที่เริ่ม</th>
+                            <th className="col-4">วันที่เริ่ม</th>
                             <td>20/08/2022 09:08</td>
                         </tr>
                         <tr>
@@ -62,23 +62,13 @@ const Progress03 = () => {
             </div>
 
             
-            <div className="container mx-auto my-2 col-10 ">
-            <div>ข้อมูลจะขึ้นแถบสีแดงเมื่อ:</div>
-                <li>ไม่ได้ทำการติ๊กตรวจสอบโครงเหล็กหรือตรวจสอบโครงเหล็กไม่ครบทุกโครง</li>
-                <li>ไม่ได้ใส่รูปภาพโครงเหล็ก หรือใส่รูปภาพโครงเหล็กไม่ครบทุกโครง</li>
-                <div className="row border border-black bg-slate-300">
-                    <div className="col border border-black">
-                        <div className="col-12"><p>Note จะขึ้นแถบสีแดง</p><p>เมื่อมีการป้อนข้อมูลในหมายเหตุ</p></div>
-                    </div>
-                    <div className="col-8 bg-green-600">sdsd</div>
-                </div>
-            </div>
+            
 
             <div className="container mx-auto my-2 col-10 border border-black">
                 <Table striped bordered>
                     <thead>
                         <tr>
-                            <th>ค่าพิกัดหมุด</th>
+                            <th >ค่าพิกัดหมุด</th>
                             <th>ค่าพิกัดตามแบบ</th>
                             <th>ค่าพิกัดที่อ่านได้</th>
                             <th>คลาดเคลื่อน</th>
@@ -102,9 +92,18 @@ const Progress03 = () => {
             </div>
 
             <div className="container mx-auto my-2 col-10 ">
-                <h4>ข้อมูลจะขึ้นแถบสีแดงเมื่อ</h4>
-                <li>ค่าตำแหน่งเคสซิ่งเยื้องเกิน ± 0.03 ม.</li>
-                <li>ไม่ได้ใส่รูปภาพหน้ากล้องเซอร์เวย์ที่แสดงค่าพิกัดเข็มที่อ่านได้และระยะคลาดเคลื่อนของค่าพิกัดเข็ม</li>
+                <h4>ข้อมูลจะขึ้นแถบสีแดงเมื่อ:</h4>
+                <li>{"ระดับบนท่อปลอกเหล็ก < ระดับพื้นดิน"}</li>
+                <Table bordered className="my-2">
+                <tbody>
+                    <tr>
+                        <th colSpan={1}>Note จะขึ้นแถบบสีแดงเมื่อ<br/>มีการป้อนข้อมูลในหมายเหตุ</th>
+                        <td colSpan={2} className="green col-8" >หกหก</td>
+                    </tr>
+                </tbody>
+                </Table>
+            
+            <hr/>
             </div>
         </>
     )

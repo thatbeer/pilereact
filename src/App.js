@@ -10,6 +10,8 @@ import Cardbox from './component/card/card';
 import DetailPage from './component/detail/detailpage';
 import ProcessPage from './page/processpage';
 import PrivateRoute from './utils/component/Authented';
+import ServicePage from './page/service';
+import PileProgress from './component/pileprogress/pileprogress';
 
 
 
@@ -37,6 +39,8 @@ function App() {
         <Route path='detail' element={<DetailPage/>} />
         <Route path='test/*' element={<ProcessPage/>} /> 
         <Route path="pre" element={<PrivateRoute/>} />
+        <Route path="service" element={<ServicePage/>} />
+        <Route path="about" element={<PileProgress/>} />
       </Route>
       <Route path='*' element={<Page404/>} />
     </Routes>

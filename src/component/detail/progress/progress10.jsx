@@ -14,7 +14,7 @@ const Progress10 = () => {
                 </thead>
                 <tbody>
                     <tr>
-                        <th>ชุดโฟร์แมน</th>
+                        <th className="col-4">ชุดโฟร์แมน</th>
                         <td>ชุดที่ 6 เทพ-สุเทพ</td>
                     </tr>
                     <tr>
@@ -44,55 +44,58 @@ const Progress10 = () => {
                 <tbody>
                     <tr>
                         <th colSpan={1}>Note จะขึ้นแถบบสีแดงเมื่อ<br/>มีการป้อนข้อมูลในหมายเหตุ</th>
-                        <td colSpan={2} className="green" >หกหก</td>
+                        <td colSpan={2} className="green col-8" >หกหก</td>
                     </tr>
                 </tbody>
             </Table>
 
-
-            <Table striped bordered responsive="sm">
+            
+            <Table striped bordered responsive="md" className="text-center justify-contents-center">
                 <thead>
-                    <tr>
+                    <tr >
                         <th>คันที่<br/>เลขรถ</th>
-                        <th>คอนกรีตจากปากเคสซิ่ง(ม.)</th>
+                        <th>คอนกรีต<br/>สะสม(ม3)</th>
                         <th>ความลึกคอนกรีตจากปากเคสซิ่ง (ม.) </th>
                         <th>ขนาดหน้าตัดที่คำนวณ(ม.)</th>
                         <th>ความยาวท่อเทรมี่ที่จมหลังเท(ม.)</th>
                         <th>จำนวนที่ตัด(ท่อน)</th>
-                        <th>
-                            <tr >ความยาวต่อท่อเทรมี่</tr>
-                            <tr>
-                                <td>ที่ตัด</td>
-                                <td>ที่เหลือ</td>
-                                <td>ที่จมหลังตัด</td>
-                            </tr>
-                        </th>
-                        <th>
-                            <tr >เวลาเทคอนกรีต</tr>
-                            <tr>
-                                <td>เริ่ม-สิ้นสุด</td>
-                                <td>คันสุดท้าย</td>
-                            </tr>
-                        </th>
+                        <th colSpan={3}>ความยาวต่อท่อเทรมี่</th>
+                        <th colSpan={2}>เวลาเทคอนกรีต</th>
+                    </tr>
+                    <tr >
+                        <th ></th>
+                        <th ></th>
+                        <th ></th>
+                        <th ></th>
+                        <th ></th>
+                        <th ></th>
+                        <th className="col-1">ที่ตัด</th>
+                        <th className="col-1">ที่เหลือ</th>
+                        <th className="col-1">ที่จมหลังตัด</th>
+                        <th className="col-2">เริ่ม-สิ้นสุด</th>
+                        <th className="col-2">คันสุดท้าย</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td>1<br/>883</td>
                         <td>6.00</td>
-                        <td>0.10</td>
-                        <td>0.64</td>
-                        <td>11.90</td>
-                        <td>2</td>
-                        <td>12</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>5.35</td>
+                        <td>0</td>
                         <td>0.00</td>
+                        <td>70.30</td>
+                        <td>-</td>
+                        <td>15 ส.ค. 2565 (17:49)<br/>15 ส.ค. 2565 (17:51)</td>
+                        <td>-</td>
                         
                     </tr>
                 </tbody>
             </Table>
 
 
-            <Table striped bordered responsive="sm">
+            <Table striped="columns" bordered responsive="sm">
                 <tbody>
                     <tr>
                         <th>Ø เฉลี่ย (ม.)</th>
@@ -116,7 +119,7 @@ const Progress10 = () => {
             </Table>
 
 
-            <Table striped bordered responsive="sm">
+            <Table striped="columns" bordered responsive="sm">
                 <thead>
                     <tr>
                         <th colSpan={2}>ข้อมูลคอนกรีตที่เหลือจากการเท</th>
@@ -124,7 +127,7 @@ const Progress10 = () => {
                 </thead>
                 <tbody>
                     <tr>
-                        <th>ปริมาณคอนกรีตที่เหลือ (ม3)</th>
+                        <th className="col-6">ปริมาณคอนกรีตที่เหลือ (ม3)</th>
                         <td>0.00</td>
                     </tr>
                     <tr>

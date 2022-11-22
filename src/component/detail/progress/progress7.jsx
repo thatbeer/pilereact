@@ -14,7 +14,7 @@ const Progress7 = () => {
                     </thead>
                     <tbody>
                         <tr>
-                            <th>วันที่เริ่ม</th>
+                            <th className="col-4">วันที่เริ่ม</th>
                             <td>20 ส.ค. 2565 (11:39)</td>
                         </tr>
                         <tr>
@@ -47,9 +47,21 @@ const Progress7 = () => {
                         </tr>
                     </tbody>
                 </Table>
+
+                <h4>ไม่ได้เช็คดิ่งและ/หรือเช็คระดับน้ำก่อนเจาะเสาเข็ม</h4>
+                <li>{"ระยะเผื่อโครงเหล็กจม < 0.30 ม."} </li>
+
+                <Table bordered className="my-2">
+                <tbody>
+                    <tr>
+                        <th colSpan={1}>Note จะขึ้นแถบบสีแดงเมื่อ<br/>มีการป้อนข้อมูลในหมายเหตุ</th>
+                        <td colSpan={2} className="green col-8" >หกหก</td>
+                    </tr>
+                </tbody>
+                </Table>
             </div>
 
-            <div className="container mx-auto my-2 col-10 ">
+            {/* <div className="container mx-auto my-2 col-10 ">
                 <h4>ไม่ได้เช็คดิ่งและ/หรือเช็คระดับน้ำก่อนเจาะเสาเข็ม</h4>
                 <li>{"ระยะเผื่อโครงเหล็กจม < 0.30 ม."} </li>
             </div>
@@ -61,16 +73,17 @@ const Progress7 = () => {
                 </div>
                 <div className="col-8 bg-green-600"></div>
                 </div>
-            </div>
+            </div> */}
 
             <div className="container mx-auto my-2 col-10 ">
                 <Table striped bordered responsive="sm">
                     <thead>
                         <tr>
-                            <th>โครง</th>
-                            <th>ลงโครงเหล็ก</th>
-                            <th>
-                                <tr>MainBar</tr>
+                            <th className="col-2">โครง</th>
+                            <th className="col-2">ลงโครงเหล็ก</th>
+                            <th >
+                                <tr >MainBar</tr>
+                                <hr/>
                                 <tr>Spiral</tr>
                             </th>
                         </tr>
@@ -81,6 +94,7 @@ const Progress7 = () => {
                             <td>ผ่าน</td>
                             <th>
                                 <tr>MainBar</tr>
+                                <hr/>
                                 <tr>Spiral</tr>
                             </th>
                         </tr>
@@ -89,6 +103,7 @@ const Progress7 = () => {
                             <td>ผ่าน</td>
                             <th>
                                 <tr>MainBar</tr>
+                                <hr/>
                                 <tr>Spiral</tr>
                             </th>
                         </tr>
@@ -97,11 +112,13 @@ const Progress7 = () => {
                             <td>ผ่าน</td>
                             <th>
                                 <tr>MainBar</tr>
+                                <hr/>
                                 <tr>Spiral</tr>
                             </th>
                         </tr>
                     </tbody>
                 </Table>
+            <hr/>
             </div>
         </>
     )
