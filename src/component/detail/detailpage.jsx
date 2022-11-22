@@ -1,92 +1,38 @@
 import { Card } from "react-bootstrap";
 import {Button} from "react-bootstrap";
+import Progress0 from "./progress/progress0";
+import Progress1 from "./progress/progress1";
+import Progress2 from "./progress/progress2";
+import Progress03 from "./progress/progress3";
+import Progress5 from "./progress/progress5";
+import Progress7 from "./progress/progress7";
+import Progress8 from "./progress/progress8";
+import Progress9 from "./progress/progress9";
+import Progress11 from "./progress/progress11";
+import Progress10 from "./progress/progress10";
 
 const DetailPage = () => {
     return (
         <>
-            {/* Process00 */}
-            <h1>Detail page</h1>
-            <div className="container mx-auto my-2 col-6 bg-orange-300 rounded-top">
-                <div className="row border border-secondary rounded-top">
-                    <h2>Header</h2>
-                </div>
-                <div className="row">
-                    <div className="col border border-secondary">
-                        row2 col1
-                        <p>sasas</p>
-                    </div>
-                    <div className="col border border-secondary">
-                        row2 col2
-                        <p>sasas</p>
-                    </div>
-                    <div className="col border border-secondary">
-                        row2 col3
-                        <p>sasas</p>
-                    </div>
-                </div>
-            </div>
+            <Progress0/>
 
-            {/* Process01 */}
-            <div className="container mx-auto my-2 col-10 bg-amber-300 ">
-                <div className="row">
-                    <h2>ข้อมูลการเตรียมโครงเหล็ก</h2>
-                </div>
-                <div className="row">
-                    <div className="col">
-                        <div className="row">start date</div>
-                        <div className="row">end date</div>
-                        <div className="row">ชื่อผู้รับเหมา</div>
-                        <div className="row">Sheet numbers</div>
-                    </div>
-                    <div className="col">
-                        <div className="row">start date</div>
-                        <div className="row">end date</div>
-                        <div className="row">ชื่อผู้รับเหมา</div>
-                        <div className="row">Sheet numbers</div>
-                    </div>
-                    
-                </div>
+            
+            <Progress1/>
+            
+
+            <Progress2/>
 
 
-            </div>
-
-            {/* Process02 */}
-            <div className="container mx-auto my-2 col-10 bg-amber-300">
-                Process2
-                <div className="row border border-secondary" >
-                    <div className="col border border-secondary">No.</div>
-                    <div className="col border border-secondary">ตามแบบ</div>
-                    <div className="col border border-secondary">
-                        <div className="row border border-secondary">MainBar</div>
-                        <div className="row border border-secondary">SubBar</div>
-                    </div>
-
-                </div>
-                
-                <div className="row border border-secondary">
-                    <div className="col border border-secondary">
-                        <div className="row border border-secondary">1</div>
-                        <div className="row border border-secondary">2</div>
-                        <div className="row border border-secondary">3</div>
-                        <div className="row border border-secondary">4</div>
-                    </div>
-                    <div className="col border border-secondary">
-                        <div className="row border border-secondary">1</div>
-                        <div className="row border border-secondary">2</div>
-                        <div className="row border border-secondary">3</div>
-                        <div className="row border border-secondary">4</div>
-                    </div>
-                    <div className="col border border-secondary">
-                        <div className="row border border-secondary">1</div>
-                        <div className="row border border-secondary">2</div>
-                        <div className="row border border-secondary">3</div>
-                        <div className="row border border-secondary">4</div>
-                    </div>
-                </div>
 
 
-                
-            </div>
+            <Progress03/>
+
+            <Progress5/>
+            <Progress7/>
+            <Progress8/>
+            <Progress9/>
+            <Progress10/>
+            <Progress11/>
         </>
     );
 };

@@ -19,6 +19,7 @@ const ItemDirectory = ({ items }) => {
                     <Card.Body>
                         <Card.Title className="mt-2">
                          <Link>{title}</Link>
+                         <hr/>
                         </Card.Title>
                         
                         <div className='d-flex d-flex-col mt-4'>
