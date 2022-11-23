@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 import swal from 'sweetalert';
 import { useNavigate } from 'react-router-dom';
 
-
+import { useTokenStore } from '../../store/userStore';
 
 
 const InitialForm = {
@@ -14,7 +14,9 @@ const InitialForm = {
 };
 
 const LoginForm = () => {
-
+    const [token , setToken , removeToken] = useTokenStore(
+        (state) => [state.token, state.setToken,state.removeToken ]
+        )
     const navigate = useNavigate();
 
     

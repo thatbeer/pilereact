@@ -12,11 +12,14 @@ import ProcessPage from './page/processpage';
 import PrivateRoute from './utils/component/Authented';
 import ServicePage from './page/service';
 import PileProgress from './component/pileprogress/pileprogress';
-
+import { useTokenStore } from './store/userStore';
 
 
 function App() {
   const navigate = useNavigate();
+
+
+  const [token , setToken , removeToken ] = useTokenStore((state) => [state.token, state.setToken,state.removeToken ])
 
   const checkifuserIn = () => {
     return  localStorage.getItem("accessToken");

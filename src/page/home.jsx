@@ -1,5 +1,7 @@
 import ItemDirectory from "../component/home/itemdirectory";
-
+import { useProjectStore } from '../../store/projectStore';
+import {shallow} from 'zustand/shallow'
+import axios from "axios";
 
 
 const Homepage = () => {
@@ -54,6 +56,15 @@ const Homepage = () => {
         },
     ]
 
+
+    const [project , setProject] =  useProjectStore(
+        (state) => [state.project , state.setProject],
+        shallow
+    );
+    // const FetchProject = async () => {
+    //     const response = await axios.get(http);
+    //     setProject(response.data)
+    // }
 
     return (
         <>
