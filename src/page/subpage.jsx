@@ -90,7 +90,7 @@ const Subpage = () => {
         setItembySearch(newFilteredItem);
         
 
-    },[typeFilter])
+    },[searchFields,typeFilter])
 
 
     return (
