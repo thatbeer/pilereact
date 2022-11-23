@@ -12,6 +12,7 @@ import FilterButton from "../component/filterbutton/filterbutton";
 
 import { useEffect,useState } from "react";
 import axios from "axios";
+import { list } from "postcss";
 
 
 
@@ -90,7 +91,7 @@ const Subpage = () => {
         setItembySearch(newFilteredItem);
         
 
-    },[searchFields,typeFilter])
+    },[searchFields,itembyType])
 
 
     return (
@@ -153,10 +154,25 @@ const Subpage = () => {
                 {/* <Cardbox/> */}
 
             </div>
+            {
+                itembySearch && itembySearch.length > 0 ? itembySearch.map((item,idx) => (
+                    <div key={idx} className="container mx-auto">
+                        <ul>
+                            <li><h1 className='font-bold underline-offset-1'>title{item.id} : {item.title}</h1></li>
+                            <li>${item.pirce}</li>
+                            <li>category: {item.category}</li>
+                            <li>description</li>
+                            <li>{item.description}</li>
+                            <li>rating: {item.rating.rate} review: {item.rating.count}</li>
+                        </ul>
+                    </div> 
+                )) : null
+            }
+
             
 
+            {/* <PileProgress/> */}
 
-            <PileProgress/>
         </>
     )
 };
