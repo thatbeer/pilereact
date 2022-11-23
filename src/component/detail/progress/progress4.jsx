@@ -7,9 +7,9 @@ const Progress4 = () => {
             <div className="container mx-auto my-5 col-12 ">
                 <h2>4. ทดสอบของเหลว</h2>
                 <Table striped bordered responsive="sm">
-                    <thead>
+                    
                         <th colSpan={2}>ข้อมูลการทดสอบของเหลว</th>
-                    </thead>
+                    
                     <tbody>
                         <tr>
                             <th>ประเภทสารละลาย</th>

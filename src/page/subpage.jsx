@@ -1,7 +1,7 @@
 import { Alert, Button, Card, InputGroup , Table} from "react-bootstrap"
 import {GrDocumentPdf} from 'react-icons/gr'
 import { FormControl } from "react-bootstrap";
-import { Outlet } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 import Cardbox from "../component/card/card";
 import PileProgress from "../component/pileprogress/pileprogress";
 import FilterButton from "../component/filterbutton/filterbutton";
@@ -12,7 +12,6 @@ import FilterButton from "../component/filterbutton/filterbutton";
 
 import { useEffect,useState } from "react";
 import axios from "axios";
-import { list } from "postcss";
 
 
 
@@ -164,7 +163,15 @@ const Subpage = () => {
                                     {itembySearch.map((item,idx) => (
                                         
                                             <tr>
-                                                <td>{item.id}</td>
+                                                <td>
+                                                    <NavLink
+                                                        key={item.id}
+                                                        to={item.title}
+                                                        state={{from: item}}
+                                                    >
+                                                        {item.id}
+                                                    </NavLink>
+                                                </td>
                                                 <td>{item.title}</td>
                                                 <td>{item.price}</td>
                                                 <td>{item.description}</td>

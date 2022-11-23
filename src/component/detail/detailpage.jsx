@@ -12,10 +12,20 @@ import Progress11 from "./progress/progress11";
 import Progress10 from "./progress/progress10";
 import Progress4 from "./progress/progress4";
 import Progress6 from "./progress/progress6";
+import { useLocation, useParams } from "react-router-dom";
+import { useState,useEffect } from "react";
 
 const DetailPage = () => {
+    const { pileid } = useParams();
+
+    const location = useLocation();
+    const [locationState , setLocationState] = useState({});
+
+    
     return (
         <>
+            {/* <h1>{pileid}</h1> */}
+            <button onClick={console.log(location.state.from.title)}>check location</button>
             <Progress0/>
             <Progress1/>
             <Progress2/>
