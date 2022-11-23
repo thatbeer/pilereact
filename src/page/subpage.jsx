@@ -1,4 +1,4 @@
-import { Alert, Button, Card, InputGroup } from "react-bootstrap"
+import { Alert, Button, Card, InputGroup , Table} from "react-bootstrap"
 import {GrDocumentPdf} from 'react-icons/gr'
 import { FormControl } from "react-bootstrap";
 import { Outlet } from "react-router-dom";
@@ -34,6 +34,8 @@ const types = [
         value:'4'
     }
 ]
+
+const headers = ['id','title','price','description','rate','count','category'];
 
 
 
@@ -97,12 +99,6 @@ const Subpage = () => {
     return (
         <>
             <Outlet/>
-            {/* <Alert variant="info" className="underline mb-0" >This is a alert tap for usig as topic title , Nice</Alert>
-            <Alert variant="info" className="underline d-flex" >
-                <h4 classNmae='mx-2 '>File.pdf</h4>
-                <GrDocumentPdf size={40} className="d-flex mt-0 ml-2 "/>
-
-            </Alert> */}
 
             <div className="container mt-6 py-2">
                 
@@ -140,39 +136,53 @@ const Subpage = () => {
                         </div>
                     </button>
                     ))}    
-                    <Button type='submit' onClick={() => {console.log(itemStore)}} >check itemStore</Button>
+                    {/* <Button type='submit' onClick={() => {console.log(itemStore)}} >check itemStore</Button>
                     <Button type='submit' onClick={() => {console.log(typeFilter)}} >check type</Button>
                     <Button type='submit' onClick={() => {console.log(itembyType)}} >check item filter by category</Button>
-                    <Button type='submit' onClick={() => {console.log(itembySearch)}} >check search item</Button>
+                    <Button type='submit' onClick={() => {console.log(itembySearch)}} >check search item</Button> */}
                 </div>
-                {/* Filter BUTTON ZONE */}
-
-
             </div>
+
             <div className="container mt-10 bg-slate-300">
-                <h1>Body</h1>
+                {/* <h1>Body</h1> */}
                 {/* <Cardbox/> */}
-
             </div>
-            {
-                itembySearch && itembySearch.length > 0 ? itembySearch.map((item,idx) => (
-                    <div key={idx} className="container mx-auto">
-                        <ul>
-                            <li><h1 className='font-bold underline-offset-1'>title{item.id} : {item.title}</h1></li>
-                            <li>${item.pirce}</li>
-                            <li>category: {item.category}</li>
-                            <li>description</li>
-                            <li>{item.description}</li>
-                            <li>rating: {item.rating.rate} review: {item.rating.count}</li>
-                        </ul>
-                    </div> 
-                )) : null
+            {itembySearch && itembySearch.length > 0 ?
+                <div className="container mx-auto my-2 col-10">
+                    <Card size="sm" className="overflow-auto">
+                        <Card.Header>Project's Title , status {"im fine"} , thanku , how are you today</Card.Header>
+                        <Card.Body>
+                            <Table size="sm" className="text-center" responsive="sm">
+                                <thead>
+                                    <tr>
+                                        {headers.map((list,index) => (
+                                            <th key={index}>{list}</th>
+                                        ))}
+                                    </tr>
+                                </thead>
+                                <tbody className="text-center">
+                                    {itembySearch.map((item,idx) => (
+                                        
+                                            <tr>
+                                                <td>{item.id}</td>
+                                                <td>{item.title}</td>
+                                                <td>{item.price}</td>
+                                                <td>{item.description}</td>
+                                                <td>{item.rating.rate}</td>
+                                                <td>{item.rating.count}</td>
+                                                <td>{item.category}</td>
+                                            </tr>
+                                    
+                                    ))}
+                                </tbody>
+                                    
+                            </Table>
+                        </Card.Body>
+                    </Card>
+                </div> 
+                : 
+                null
             }
-
-            
-
-            {/* <PileProgress/> */}
-
         </>
     )
 };
