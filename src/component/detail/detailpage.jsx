@@ -24,8 +24,8 @@ const DetailPage = () => {
     
     return (
         <>
-            {/* <h1>{pileid}</h1> */}
-            <button onClick={console.log(location.state.from.title)}>check location</button>
+            <h1>{pileid}</h1>
+            <h2>${location.state.from.price}</h2>  
             <Progress0/>
             <Progress1/>
             <Progress2/>

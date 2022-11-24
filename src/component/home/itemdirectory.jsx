@@ -5,7 +5,7 @@ import {TbSend} from 'react-icons/tb'
 import './itemdirectory.css'
 
 
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const ItemDirectory = ({ items }) => {
     const { id , title , wait2erp , reward , extra} = items;
@@ -19,7 +19,10 @@ const ItemDirectory = ({ items }) => {
             
             <div className="container my-10 mx-auto" >
                 <Card style={{ width: '60rem' }} className='ml-5'>
-                    <Card.Header className="text-xl bold"><Link>{title}</Link></Card.Header>
+                    <Card.Header className="text-xl bold"><NavLink to='/test'
+                    //  state={{from: items}}
+                    //   key={id}
+                      >{title}</NavLink></Card.Header>
                     <Card.Body className='p-1'>
                         {/* <Card.Title className="mt-2">
                          <Link>{title}</Link>
@@ -28,7 +31,7 @@ const ItemDirectory = ({ items }) => {
                         </Card.Title> */}
                         
                         <div className='d-flex d-flex-col mt-4'>
-                        <Card.Text className="mx-2 flex"><TbSend className='mx-2 ' color="red" size={20}/>รอส่ง: <Link href="#"> 0 ต้น</Link></Card.Text>
+                        <Card.Text className="mx-2 flex"><TbSend className='mx-2 ' color="red" size={20}/>รอส่ง: <NavLink href="#"> 0 ต้น</NavLink></Card.Text>
                         <Card.Text className="mx-2 flex "><SiBitcoincash className='mx-2 ' color="orange" size={20}/> สำเร็จ: <Card.Link href="#"> 0 ต้น</Card.Link></Card.Text>
                         { extra ? 
                             <Dropdown className='mt-0 ml-auto '>

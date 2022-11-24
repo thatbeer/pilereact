@@ -118,13 +118,17 @@ const LoginForm = () => {
       // const checkifuserIn = () => {
       //   return  localStorage.getItem("accessToken");
       // }
+
+      const checkifuserIn = () => {
+        return  A_token
+      }
     
       useEffect(() => {
-        // const response = checkifuserIn();
+    
         if (A_token != null) {
           navigate('/main')
         }
-      },[]);
+      },[A_token]);
 
     return (
         <>

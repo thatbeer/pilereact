@@ -1,7 +1,7 @@
 import { Alert, Button, Card, InputGroup , Table} from "react-bootstrap"
 import {GrDocumentPdf} from 'react-icons/gr'
 import { FormControl } from "react-bootstrap";
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink, Outlet, useLocation } from "react-router-dom";
 import Cardbox from "../component/card/card";
 import PileProgress from "../component/pileprogress/pileprogress";
 import FilterButton from "../component/filterbutton/filterbutton";
@@ -39,6 +39,7 @@ const headers = ['id','title','price','description','rate','count','category'];
 
 
 const Subpage = () => {
+    const location = useLocation();
     const [itemStore,setItemStore] = useState([]);
     const fetchProject = async () => {
         const response = await axios.get('https://fakestoreapi.com/products');
@@ -98,7 +99,7 @@ const Subpage = () => {
     return (
         <>
             <Outlet/>
-
+            
             <div className="container mt-6 py-2">
                 
                 <div className="search-bar col-9 mx-auto my-2" >
@@ -111,6 +112,7 @@ const Subpage = () => {
                             onChange={onSearchChangeHandler}
                         />
                         <Button id="btton-addon" onClick={ResetSearchField} variant="outline-primary">clear</Button>
+                        <Button id="btton-addon" onClick={console.log(location)} variant="outline-primary">clear</Button>
                     </InputGroup>
                 </div>
                 {/* <FilterButton/> */}

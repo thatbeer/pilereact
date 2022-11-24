@@ -33,10 +33,10 @@ function App() {
     <Routes>
       <Route path='/' element={<Header/>} >
         <Route index element={<LoginForm/>} />
-        <Route path='main' element={<Homepage/>} />
+        <Route path='main/*' element={<Homepage/>} />
+        <Route path=':test/*' element={<ProcessPage/>} /> 
         {/* <Route path='sub' element={<Subpage/>} /> */}
         {/* <Route path='detail' element={<DetailPage/>} /> */}
-        <Route path='test/*' element={<ProcessPage/>} /> 
         <Route path="pre" element={<PrivateRoute/>} />
         {/* <Route path='card' element={<Cardbox/>} /> */}
         {/* <Route path="service" element={<ServicePage/>} />
