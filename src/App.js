@@ -12,14 +12,11 @@ import ProcessPage from './page/processpage';
 import PrivateRoute from './utils/component/Authented';
 import ServicePage from './page/service';
 import PileProgress from './component/pileprogress/pileprogress';
-import { useTokenStore } from './store/userStore';
 
 
 function App() {
   const navigate = useNavigate();
 
-
-  const [token , setToken , removeToken ] = useTokenStore((state) => [state.token, state.setToken,state.removeToken ])
 
   const checkifuserIn = () => {
     return  localStorage.getItem("accessToken");
@@ -37,8 +34,8 @@ function App() {
       <Route path='/' element={<Header/>} >
         <Route index element={<LoginForm/>} />
         <Route path='main' element={<Homepage/>} />
-        <Route path='sub' element={<Subpage/>} />
-        <Route path='detail' element={<DetailPage/>} />
+        {/* <Route path='sub' element={<Subpage/>} /> */}
+        {/* <Route path='detail' element={<DetailPage/>} /> */}
         <Route path='test/*' element={<ProcessPage/>} /> 
         <Route path="pre" element={<PrivateRoute/>} />
         {/* <Route path='card' element={<Cardbox/>} /> */}

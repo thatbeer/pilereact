@@ -4,22 +4,27 @@ import './loginform.styles.css'
 import { useState, useEffect } from 'react';
 import swal from 'sweetalert';
 import { useNavigate } from 'react-router-dom';
-
-import { useTokenStore } from '../../store/userStore';
+import {  useTokenStore } from '../../store/mecallApiStore';
+import shallow from 'zustand/shallow'
 
 
 const InitialForm = {
     username:'',
     password:'',
 };
+const deviceid = 'sss';
+const appname = 'browser';
 
 const LoginForm = () => {
-    const [token , setToken , removeToken] = useTokenStore(
-        (state) => [state.token, state.setToken,state.removeToken ]
-        )
     const navigate = useNavigate();
 
-    
+
+    const {A_token , setAToken,R_token , setRToken} = useTokenStore((state) => ({
+        A_token:state.A_token,
+        setAToken: state.setAToken,
+        R_token:state.R_token,
+        setRToken: state.setRToken
+    }),shallow)
 
     const [formfields , setFormfields] = useState(InitialForm);
     const {username, password} = formfields;
@@ -32,34 +37,72 @@ const LoginForm = () => {
         const {name , value} = event.target;
 
         setFormfields((formfields) => ({...formfields,[name]:value}));
-        console.log(formfields);
     };
     
 
-    const loginUser = async (credential) => {
-        return fetch('https://www.mecallapi.com/api/login', {
+    // const loginUser = async (credential) => {
+    //     return fetch('https://www.mecallapi.com/api/login', {
+    //         method: 'POST',
+    //         headers: {
+    //             'Content-Type': 'application/json'
+    //         },
+    //         body: JSON.stringify(credential)
+    //     }).then(data => data.json())
+    // }
+
+    const loginUserP = async ({userno,userpw, devideid,appname}) => {
+        return fetch('http://147.50.12.230:84/api/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(credential)
+            body: JSON.stringify({userno,userpw, devideid,appname})
         }).then(data => data.json())
     }
 
-    const handleSubmit = async event => {
+
+    // const handleSubmit = async event => {
+    //     event.preventDefault();
+    //     const response = await loginUser({
+    //       username,
+    //       password
+    //     });
+    //     console.log(response)
+    //     if ('accessToken' in response) {
+    //       swal("Success", response.message, "success", {
+    //         buttons: false,
+    //         timer: 2000,
+    //       })
+    //       .then((value) => {
+    //         localStorage.setItem('accessToken', response['accessToken']);
+    //         localStorage.setItem('user', JSON.stringify(response['user']));
+    //         resetFormFields();
+    //         window.location.href = "/main";
+    //       });
+    //     } else {
+    //       swal("Failed", response.message, "error");
+    //       resetFormFields();
+    //     }
+    //   }
+
+      const handleSubmitP = async event => {
         event.preventDefault();
-        const response = await loginUser({
-          username,
-          password
+        const response = await loginUserP({
+          userno:username,
+          userpw:password,
+          deviceid,
+          appname
         });
-        if ('accessToken' in response) {
-          swal("Success", response.message, "success", {
+        console.log(response)
+        if ('access_token' in response) {
+          swal("Success", response.object, "success", {
             buttons: false,
             timer: 2000,
           })
           .then((value) => {
-            localStorage.setItem('accessToken', response['accessToken']);
-            localStorage.setItem('user', JSON.stringify(response['user']));
+            // localStorage.setItem('accessToken', response['access_token']);
+            // localStorage.setItem('data',JSON.stringify(response))
+            setAToken(response['access_token']);
             resetFormFields();
             window.location.href = "/main";
           });
@@ -69,17 +112,19 @@ const LoginForm = () => {
         }
       }
 
-      const checkifuserIn = () => {
-        return  localStorage.getItem("accessToken");
-      }
+
+      
+
+      // const checkifuserIn = () => {
+      //   return  localStorage.getItem("accessToken");
+      // }
     
       useEffect(() => {
-        const response = checkifuserIn();
-        if (response) {
+        // const response = checkifuserIn();
+        if (A_token != null) {
           navigate('/main')
         }
-      }, []);
-
+      },[]);
 
     return (
         <>
@@ -88,7 +133,7 @@ const LoginForm = () => {
                     <div className="login-label ml-3" >
                         <h2>Login</h2>
                     </div>
-                    <form className='container' onSubmit={handleSubmit}>
+                    <form className='container' onSubmit={handleSubmitP}>
                         <div className='form-container mr-'>
                             <div className="form-group">
                                 <label>User name</label>

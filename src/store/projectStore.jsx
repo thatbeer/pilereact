@@ -1,9 +1,19 @@
-import {create} from "zustand/react";
-import {persist} from 'zustand/middleware'
+// import create from "zustand";
+// import {persist} from 'zustand/middleware'
 
-const store = persist((set) => ({
-    project: [],
-    setProject: (project) => ((state) => state.project)
-}))
+// const store = persist((set) => ({
+//     project: [],
+//     setProject: (project) => ((state) => state.project)
+// }))
 
-export const useProjectStore = create(store);
+
+
+
+// const useStore = create((set) => {
+//     filter:"",
+//     projects: [],
+//     setFIlter: (filter) => set((state) => ({
+//         ....state.filter,
+//     })),
+
+// })

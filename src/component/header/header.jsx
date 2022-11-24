@@ -1,12 +1,22 @@
-import { Navbar,Nav, Form } from "react-bootstrap";
+import { Navbar,Nav, Form, Button } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 
 import './header.css'
 import { Outlet } from "react-router-dom";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import {  useTokenStore } from '../../store/mecallApiStore';
+import shallow from 'zustand/shallow'
 
 const Header = () => {
+    
+
+    const {A_token , setAToken,R_token , setRToken} = useTokenStore((state) => ({
+        A_token:state.A_token,
+        setAToken: state.setAToken,
+        R_token:state.R_token,
+        setRToken: state.setRToken
+    }),shallow)
 
     const token = localStorage.getItem('accessToken');
     
@@ -15,6 +25,7 @@ const Header = () => {
     const SignOutHandler = () => {
         localStorage.removeItem("accessToken");
         localStorage.removeItem("user");
+        setAToken(null);
         navigate('/');
     };
 
@@ -24,13 +35,13 @@ const Header = () => {
     
     useEffect(() => {
         const response = checkifuserIn();
+        console.log(A_token)
         if (response) {
           navigate('/main')
         } else {
             navigate('/')  
         }
     }, []);
-
 
 
     return (
@@ -43,11 +54,9 @@ const Header = () => {
                         
                     }
                 
-                    <LinkContainer to='/main'>
+                    {/* <LinkContainer to='/main'>
                     <Nav.Link href="#" className="mx-3 my-2">Mainpage</Nav.Link>
-                    </LinkContainer>
-
-                    
+                    </LinkContainer> */}
 
                     {/* <LinkContainer to='/card'>
                     <Nav.Link href="#" className="mx-3 my-2">Cardpage</Nav.Link>
@@ -57,9 +66,6 @@ const Header = () => {
                     <Nav.Link href="#" className="mx-3 my-2">Process(testsubpage)</Nav.Link>
                     </LinkContainer>
                 
-                    <LinkContainer to='/detail'>
-                    <Nav.Link href="#" className="mx-3 my-2">DetailPage</Nav.Link>
-                    </LinkContainer>
 
                 </div>
             
