@@ -103,7 +103,7 @@ const Header = () => {
                 </Navbar.Collapse>    */}
 
                 <div className="mx-1">
-                    <NavDropdown 
+                    {A_token ? <NavDropdown 
                         title={<span className="d-flex flex-col">
                                 <FaUserCircle/>
                                 { name }
@@ -118,7 +118,8 @@ const Header = () => {
                         <NavDropdown.Item
                             onClick={SignOutHandler} className="hover:opacity-60 hover:underline hover:cursor-pointer" 
                         >Logout</NavDropdown.Item>
-                    </NavDropdown>
+                    </NavDropdown> : null
+                    }
 
                 </div>
 

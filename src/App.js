@@ -42,7 +42,7 @@ function App() {
         {/* <Route path="service" element={<ServicePage/>} />
         <Route path="about" element={<PileProgress/>} /> */}
       </Route>
-      <Route path='*' element={<Page404/>} />
+      <Route path='/*' element={<Page404/>} />
     </Routes>
   )
 };

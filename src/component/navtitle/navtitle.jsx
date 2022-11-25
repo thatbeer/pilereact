@@ -7,6 +7,7 @@ import { useState } from 'react';
 // import SideCard from '../sidecard/sidecard';
 
 import { useProjectStore } from '../../store/projectStore';
+import { Link } from 'react-router-dom';
 
 
 const NavTitle = () => {
@@ -36,7 +37,7 @@ const NavTitle = () => {
                             <Offcanvas.Title >Contents</Offcanvas.Title>
                         </Offcanvas.Header>
                         <Offcanvas.Body>
-                            <h2>to Main Page</h2>
+                            <Link to='/'>Main page</Link>
                             <ul className='container mx-auto my-0 border border-emerald-100'>
                                 <li className="my-4 mx-4 underline">Project1</li>
                                 <li className="my-4 mx-4 underline">Project1</li>
@@ -44,6 +45,7 @@ const NavTitle = () => {
                                 <li className="my-4 mx-4 underline">Project1</li>
                                 <li className="my-4 mx-4 underline">Project1</li>
                             </ul>
+                            <option>sdd</option>
                             {/* <h2>{project.title}</h2>
                             <p>{project.reward}</p>
                             {project.map((item,index) =>(
