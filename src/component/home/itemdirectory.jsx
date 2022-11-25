@@ -3,16 +3,23 @@ import { Dropdown } from 'react-bootstrap';
 import {SiBitcoincash} from 'react-icons/si'
 import {TbSend} from 'react-icons/tb'
 import './itemdirectory.css'
-
+import { useEffect } from 'react';
 
 import { NavLink } from 'react-router-dom';
+
+import { useProjectStore } from '../../store/projectStore';
+
 
 const ItemDirectory = ({ items }) => {
     const { id , title , wait2erp , reward , extra} = items;
     const {name } = extra
     
+    const project = useProjectStore((state) => state.project)
+    const setProject = useProjectStore((state) => state.setProject)
 
-
+    useEffect(() => {
+        setProject(items)
+    }, [items]);
 
     return (
         <>
@@ -29,7 +36,7 @@ const ItemDirectory = ({ items }) => {
                          
                          <hr/>
                         </Card.Title> */}
-                        
+                        {/* <Card.Title onClick={() => {console.log(project)}}>Cilck to check store</Card.Title> */}
                         <div className='d-flex d-flex-col mt-4'>
                         <Card.Text className="mx-2 flex"><TbSend className='mx-2 ' color="red" size={20}/>รอส่ง: <NavLink href="#"> 0 ต้น</NavLink></Card.Text>
                         <Card.Text className="mx-2 flex "><SiBitcoincash className='mx-2 ' color="orange" size={20}/> สำเร็จ: <Card.Link href="#"> 0 ต้น</Card.Link></Card.Text>

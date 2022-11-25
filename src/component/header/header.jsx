@@ -1,4 +1,4 @@
-import { Navbar,Nav, Form, Button } from "react-bootstrap";
+import { Navbar,Nav, Form, Button, NavDropdown ,Dropdown ,DropdownButton } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 
 import './header.css'
@@ -7,6 +7,13 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import {  useTokenStore } from '../../store/mecallApiStore';
 import shallow from 'zustand/shallow'
+
+import {FaUserCircle} from 'react-icons/fa'
+
+
+import { NavbarDarkExample } from "../dropdown/dropdown";
+
+let name = 'beer'
 
 const Header = () => {
     
@@ -46,9 +53,9 @@ const Header = () => {
 
     return (
         <>
-            <Navbar bg="light" expand="flase" sticky='top' className='Nav-container'>
+            <Navbar bg="light" expand="false" sticky='top' className='Nav-container'>
                 <div className="d-flex d-flex-col">
-                    { token ? 
+                    { A_token ? 
                     <LinkContainer to='/main'><Navbar.Brand className="mx-3">React-Bootstrap-logo</Navbar.Brand></LinkContainer> : 
                     <LinkContainer to='/'><Navbar.Brand className="mx-3">React-Bootstrap-logo</Navbar.Brand></LinkContainer>
                         
@@ -62,19 +69,23 @@ const Header = () => {
                     <Nav.Link href="#" className="mx-3 my-2">Cardpage</Nav.Link>
                     </LinkContainer> */}
                     
-                    <LinkContainer to='/test'>
+                    {/* <LinkContainer to='/test'>
                     <Nav.Link href="#" className="mx-3 my-2">Process(testsubpage)</Nav.Link>
-                    </LinkContainer>
+                    </LinkContainer> */}
                 
 
                 </div>
+
             
 
                 {/* <Form className="search-container d-flex">
                     <Form.Control type='search' placeholder="Search" className="" aria-label="Search"/>
                     <Button variant="outline-success">Search</Button>
                 </Form> */}
-                <Navbar.Toggle aria-controls=""/>
+            
+                {/* <Navbar.Toggle aria-controls="basic-navbar-nav">
+                <FaUserCircle  size={30} />
+                </Navbar.Toggle>
                 
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto justify-start mx-10">
@@ -89,9 +100,35 @@ const Header = () => {
                         </LinkContainer>
                         <Nav.Item onClick={SignOutHandler} className="hover:opacity-60 hover:underline hover:cursor-pointer" >Logout</Nav.Item>
                     </Nav>
-                </Navbar.Collapse>   
+                </Navbar.Collapse>    */}
+
+                <div className="mx-1">
+                    <NavDropdown 
+                        title={<span className="d-flex flex-col">
+                                <FaUserCircle/>
+                                { name }
+                            </span>} 
+                        className="mr-3" 
+                        align="end"
+                    >
+                        <NavDropdown.Item>profile</NavDropdown.Item>
+                        <NavDropdown.Item>report</NavDropdown.Item>
+                        <NavDropdown.Item>help</NavDropdown.Item>
+                        <NavDropdown.Divider/>
+                        <NavDropdown.Item
+                            onClick={SignOutHandler} className="hover:opacity-60 hover:underline hover:cursor-pointer" 
+                        >Logout</NavDropdown.Item>
+                    </NavDropdown>
+
+                </div>
+
+
+
             </Navbar>
             
+            
+
+
             <Outlet/>
         </>
     )

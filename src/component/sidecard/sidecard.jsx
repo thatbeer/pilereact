@@ -2,7 +2,7 @@ import Button from 'react-bootstrap/Button';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import { useState } from 'react';
 
-const SideCard = ({ name, ...props }) => {
+const SideCard = () => {
     const [show , setShow] = useState(false);
 
     const handleClose = () => setShow(false);
@@ -10,10 +10,10 @@ const SideCard = ({ name, ...props }) => {
 
     return (
         <>
-            <Button variant="primary" onClick={toggleShow} className="me-2">
+            <div variant="primary" onClick={toggleShow} className="me-2">
                 Title
-            </Button>
-            <Offcanvas show={show} onHide={handleClose} >
+            </div>
+            <Offcanvas show={show} onHide={handleClose} scrollable>
                 <Offcanvas.Header closeButton>
                     <Offcanvas.Title >Offcanvas</Offcanvas.Title>
                 </Offcanvas.Header>

@@ -112,7 +112,7 @@ const Subpage = () => {
                             onChange={onSearchChangeHandler}
                         />
                         <Button id="btton-addon" onClick={ResetSearchField} variant="outline-primary">clear</Button>
-                        <Button id="btton-addon" onClick={console.log(location)} variant="outline-primary">clear</Button>
+                        {/* <Button id="btton-addon" onClick={console.log(location)} variant="outline-primary">clear</Button> */}
                     </InputGroup>
                 </div>
                 {/* <FilterButton/> */}
