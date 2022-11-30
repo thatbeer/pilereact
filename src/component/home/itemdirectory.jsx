@@ -45,14 +45,20 @@ const ItemDirectory = ({ items }) => {
     // }, [items]);
 
 
+
+    // <NavLink
+    // key={item.id}
+    // to={item.title}
+    // state={{from: item}}
+    // >
     return (
         <>
             
             <div className="container my-10 mx-auto" >
                 <Card style={{ width: '60rem' }} className='ml-5'>
                     <Card.Header className="text-xl bold"><NavLink to='/test'
-                    //  state={{from: items}}
-                    //   key={id}
+                     state={{from: items}}
+                      key={jobid}
                       >{jobname}</NavLink></Card.Header>
                     <Card.Body className='p-1'>
                         {/* <Card.Title className="mt-2">

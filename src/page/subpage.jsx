@@ -134,7 +134,7 @@ const Subpage = () => {
                         className="btn mb-2 mb-m-0 p-0 btn-block btn-outline-primary"
                         style={{ width: '10rem' , height: '5rem' }}
                         name={type.name}
-                        type="button" 
+                        type="button"
                         value={type.name}
                         onClick={() => {setTypeFilter(type.name);
                             setItembyType(TypeTunnel(type.name));}}
