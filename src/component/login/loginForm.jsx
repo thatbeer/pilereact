@@ -100,7 +100,7 @@ const LoginForm = () => {
             timer: 2000,
           })
           .then((value) => {
-            // localStorage.setItem('accessToken', response['access_token']);
+            localStorage.setItem('access_token', response['access_token']);
             // localStorage.setItem('data',JSON.stringify(response))
             setAToken(response['access_token']);
             resetFormFields();

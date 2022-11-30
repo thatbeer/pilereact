@@ -1,7 +1,12 @@
 import ItemDirectory from "../component/home/itemdirectory";
 import shallow from 'zustand/shallow'
 import axios from "axios";
+import { useState , useContext} from "react";
+import { ProductContext  } from "../context/product.context";
 
+import { ProjectContext } from "../context/pile.context";
+
+import { Button } from "react-bootstrap";
 
 const Homepage = () => {
     const fakeitem01 = [
@@ -55,15 +60,19 @@ const Homepage = () => {
         },
     ]
 
+    const [item , setItem ] = useState([]);
 
     // const FetchProject = async () => {
     //     const response = await axios.get(http);
-    //     setProject(response.data)
+    //     setItem(response.data)
     // }
-
+    const { products , status } = useContext(ProductContext);
+    const { project , p_status} = useContext(ProjectContext);
+    const { data } =project
     return (
         <>
-            {fakeitem01.map((item,index) => (
+            <Button onClick={() => {console.log(data)}}>Click me</Button>
+            {data.map((item,index) => (
                 <ItemDirectory key={index} items={item} />
             ))}
         </>

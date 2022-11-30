@@ -11,14 +11,19 @@ import { Routes,Route } from 'react-router-dom';
 import { Router } from 'react-router-dom';
 
 import Page404 from './page/error404';
-
+import { ProductsProvider } from './context/product.context';
+import { ProjectsProvider } from './context/pile.context';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <App/>
-    </BrowserRouter>
+    <ProjectsProvider>
+      <ProductsProvider>
+        <BrowserRouter>
+          <App/>
+        </BrowserRouter>
+      </ProductsProvider>
+    </ProjectsProvider>
   </React.StrictMode>
 );
 

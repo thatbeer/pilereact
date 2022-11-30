@@ -10,8 +10,9 @@ import FilterButton from "../component/filterbutton/filterbutton";
 // based on props data
 
 
-import { useEffect,useState } from "react";
+import { useEffect,useState, useContext } from "react";
 import axios from "axios";
+import { ProductContext } from "../context/product.context";
 
 
 
@@ -50,6 +51,8 @@ const Subpage = () => {
     useEffect( () => {
         fetchProject();
     },[]);
+
+    const { products } = useContext(ProductContext);
 
     //\\ ************************ Filter by Type ************************ //\\
     // create value store typefilter which default value is "ทำค้าง"
@@ -94,6 +97,11 @@ const Subpage = () => {
         
 
     },[searchFields,itembyType])
+
+    
+    if (typeof idsad == 'undefined') {
+        console.log('idsad is undefined')
+    }
 
 
     return (
@@ -162,7 +170,7 @@ const Subpage = () => {
                                     </tr>
                                 </thead>
                                 <tbody className="text-center">
-                                    {itembySearch.map((item,idx) => (
+                                    {products.map((item,idx) => (
                                         
                                             <tr>
                                                 <td>

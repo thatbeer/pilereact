@@ -30,7 +30,7 @@ const Header = () => {
     const navigate = useNavigate();
 
     const SignOutHandler = () => {
-        localStorage.removeItem("accessToken");
+        localStorage.removeItem("access_token");
         localStorage.removeItem("user");
         setAToken(null);
         navigate('/');

@@ -12,6 +12,7 @@ import ProcessPage from './page/processpage';
 import PrivateRoute from './utils/component/Authented';
 import ServicePage from './page/service';
 import PileProgress from './component/pileprogress/pileprogress';
+import LgInTempalte from './template/logintemplate/logintempalte';
 
 
 function App() {
@@ -42,6 +43,7 @@ function App() {
         {/* <Route path="service" element={<ServicePage/>} />
         <Route path="about" element={<PileProgress/>} /> */}
       </Route>
+      <Route path="testtemp" element={<LgInTempalte/>}/>
       <Route path='/*' element={<Page404/>} />
     </Routes>
   )
