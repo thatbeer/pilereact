@@ -122,16 +122,16 @@ const LoginForm = () => {
       const checkifuserIn = () => {
         return  A_token
       }
-      if (A_token != null) {
-        navigate('/main')
-      }
+      // if (A_token != null) {
+      //   navigate('/main')
+      // }
     
       useEffect(() => {
     
         if (A_token != null) {
           navigate('/main')
         }
-      },[]);
+      });
 
     return (
         <>

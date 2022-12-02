@@ -72,7 +72,7 @@ const Homepage = () => {
     return (
         <>
             <Button onClick={() => {console.log(data)}}>Click me</Button>
-            {data.map((item,index) => (
+            {data?.map((item,index) => (
                 <ItemDirectory key={index} items={item} />
             ))}
         </>
