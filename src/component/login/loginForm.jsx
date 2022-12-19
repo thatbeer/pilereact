@@ -1,5 +1,5 @@
 import './loginform.styles.css'
-
+import { Modal , Button } from 'bootstrap';
 
 import { useState, useEffect } from 'react';
 import swal from 'sweetalert';
@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import {  useTokenStore } from '../../store/mecallApiStore';
 import shallow from 'zustand/shallow'
 
+import Example from '../MoldalExample/modal';
 
 const InitialForm = {
     username:'',
@@ -125,6 +126,14 @@ const LoginForm = () => {
       // if (A_token != null) {
       //   navigate('/main')
       // }
+
+
+      const [onShow, setOnShow] = useState(false);
+
+      const onClickModal = () => setOnShow(!onShow);
+
+
+
     
       useEffect(() => {
     
@@ -135,15 +144,15 @@ const LoginForm = () => {
 
     return (
         <>
-            <div className="col-6 mt-5 mx-auto card">
+            <div className="container col-6 mt-5 mx-auto card">
                 <div className="card-body">
                     <div className="login-label ml-3" >
                         <h2>Login</h2>
                     </div>
                     <form className='container' onSubmit={handleSubmitP}>
-                        <div className='form-container mr-'>
+                        <div className='form-container '>
                             <div className="form-group">
-                                <label>User name</label>
+                                <label className='my-2'>User name</label>
                                 <input 
                                     type="text" 
                                     className="form-control" 
@@ -153,7 +162,7 @@ const LoginForm = () => {
                                     onChange={onChangeHandler} />
                             </div>
                             <div className="form-group">
-                                <label>password</label>
+                                <label className='my-2'>password</label>
                                 <input 
                                     type="password" 
                                     className="form-control" 
@@ -163,14 +172,43 @@ const LoginForm = () => {
                                     onChange={onChangeHandler} />
                             </div>
                         </div>
-                        <div className="button-container text-center d-flex-col mt-3 col-4">
+                        <div className="button-container row text-center d-flex-col my-3 mx-2 ">
                             <button 
                                 type="submit" 
-                                className="btn btn-primary my-1">Login</button>
-                            <p>forget password?</p>
+                                className="col btn btn-primary my-1">Login</button>
+                            <div className='col-7 mt-3 form-check d-flex-inline'>
+                              {/* <input className='form-check-input mt-3 mx-2' type='checkbox' id=''/> */}
+                              <p 
+                                className=' mt-2 underline text-sky-700 
+                                  hover:text-sky-400 hover:cursor-pointer'
+                                onClick={onClickModal}
+                                
+                                >forget password?</p>
+                            </div>
+                          
                         </div>
                         
                     </form>
+                {/* <Modal
+                  show={onShow}
+                  onHide={onClickModal}
+                  backdrop='static'
+                  keyboard={false}
+                >
+                  <Modal.Header closeButton>
+                    <Modal.Title>Modal Title</Modal.Title>
+                  </Modal.Header>
+                  <Modal.Body>
+                    I wil not ba braba
+                  </Modal.Body>
+                  <Modal.Footer>
+                    <Button variant='secondary' onClick={onClickModal}>
+                      Click me
+                    </Button>
+                  </Modal.Footer>
+                </Modal> */}
+                  
+
                 </div>
             </div>
         </>

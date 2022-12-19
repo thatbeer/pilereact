@@ -36,14 +36,8 @@ function App() {
         <Route index element={<LoginForm/>} />
         <Route path='main/*' element={<Homepage/>} />
         <Route path=':test/*' element={<ProcessPage/>} /> 
-        {/* <Route path='sub' element={<Subpage/>} /> */}
-        {/* <Route path='detail' element={<DetailPage/>} /> */}
-        <Route path="pre" element={<PrivateRoute/>} />
-        {/* <Route path='card' element={<Cardbox/>} /> */}
-        {/* <Route path="service" element={<ServicePage/>} />
-        <Route path="about" element={<PileProgress/>} /> */}
+        {/* <Route path="pre" element={<PrivateRoute/>} /> */}
       </Route>
-      <Route path="testtemp" element={<LgInTempalte/>}/>
       <Route path='/*' element={<Page404/>} />
     </Routes>
   )

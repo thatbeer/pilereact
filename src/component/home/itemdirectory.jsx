@@ -55,7 +55,7 @@ const ItemDirectory = ({ items }) => {
         <>
             
             <div className="container my-10 mx-auto" >
-                <Card style={{ width: '60rem' }} className='ml-5'>
+                <Card  className=''>
                     <Card.Header className="text-xl bold"><NavLink to='/test'
                      state={{from: items}}
                       key={jobid}
@@ -68,8 +68,20 @@ const ItemDirectory = ({ items }) => {
                         </Card.Title> */}
                         {/* <Card.Title onClick={() => {console.log(project)}}>Cilck to check store</Card.Title> */}
                         <div className='d-flex d-flex-col mt-4'>
-                        <Card.Text className="mx-2 flex"><TbSend className='mx-2 ' color="red" size={20}/>รอส่ง: <NavLink href="#"> {inprocess} ต้น</NavLink></Card.Text>
-                        <Card.Text className="mx-2 flex "><SiBitcoincash className='mx-2 ' color="orange" size={20}/> สำเร็จ: <Card.Link onClick={() => {}}> {done} ต้น</Card.Link></Card.Text>
+                        <Card.Text className="mx-2 flex">
+                            <TbSend className='mx-2 ' color="red" size={20}/>รอส่ง: 
+                            <NavLink 
+                                to='/test?filter=inprogress'
+                                state={{from:items}}
+                                key={jobid}
+                            > {inprocess} ต้น</NavLink></Card.Text>
+                        <Card.Text className="mx-2 flex ">
+                            <SiBitcoincash className='mx-2 ' color="orange" size={20}/> สำเร็จ: 
+                            <NavLink 
+                                to='/test?filter=done'
+                                state={{from:items}}
+                                key={jobid}
+                            > {done} ต้น</NavLink></Card.Text>
                         {/* { extra ? 
                             <Dropdown className='mt-0 ml-auto '>
                                 <Dropdown.Toggle varaint="success">Area</Dropdown.Toggle>

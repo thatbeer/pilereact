@@ -53,7 +53,7 @@ const Header = () => {
 
     return (
         <>
-            <Navbar bg="light" expand="false" sticky='top' className='Nav-container'>
+            <Navbar style={{'background-color': '#007cc2','text-color':'white'}} variant='dark' expand="false" sticky='top' className='Nav-container'>
                 <div className="d-flex d-flex-col">
                     { A_token ? 
                     <LinkContainer to='/main'><Navbar.Brand className="mx-3">React-Bootstrap-logo</Navbar.Brand></LinkContainer> : 
@@ -110,6 +110,7 @@ const Header = () => {
                             </span>} 
                         className="mr-3" 
                         align="end"
+                        style={{zIndex: '10'}}
                     >
                         <NavDropdown.Item>profile</NavDropdown.Item>
                         <NavDropdown.Item>report</NavDropdown.Item>

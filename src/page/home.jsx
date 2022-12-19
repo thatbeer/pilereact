@@ -71,7 +71,7 @@ const Homepage = () => {
     const { data } =project
     return (
         <>
-            <Button onClick={() => {console.log(data)}}>Click me</Button>
+            
             {data?.map((item,index) => (
                 <ItemDirectory key={index} items={item} />
             ))}

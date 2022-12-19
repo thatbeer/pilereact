@@ -1,18 +1,19 @@
 import { Alert, Button, Card, InputGroup , Table} from "react-bootstrap"
 import {GrDocumentPdf} from 'react-icons/gr'
 import { FormControl } from "react-bootstrap";
-import { NavLink, Outlet, useLocation } from "react-router-dom";
+import { NavLink, Outlet, useLocation, useParams } from "react-router-dom";
 import Cardbox from "../component/card/card";
 import PileProgress from "../component/pileprogress/pileprogress";
 import FilterButton from "../component/filterbutton/filterbutton";
 // this page suppose to recieve props from a previous history
 // which may look like subpage = ({props}) for contructing the page
 // based on props data
-
+import queryString from "query-string";
 
 import { useEffect,useState, useContext } from "react";
 import axios from "axios";
 import { ProductContext } from "../context/product.context";
+import { useQuery } from "@tanstack/react-query";
 
 
 
@@ -42,6 +43,10 @@ const headers = ['id','title','price','description','rate','count','category'];
 const Subpage = () => {
     const location = useLocation();
     const [itemStore,setItemStore] = useState([]);
+    const { filter } = queryString.parse(location.search)
+
+
+
     const fetchProject = async () => {
         const response = await axios.get('https://fakestoreapi.com/products');
         // console.log(response.data);
@@ -52,10 +57,35 @@ const Subpage = () => {
         fetchProject();
     },[]);
 
+
+
+    // const fetchPiles = async () => {
+    //     const config = {
+    //         headers : {
+    //         'Content-Type': 'application/json',
+    //     }}
+    //     const response = await axios.post('https://',data,config);
+    //     const pilesItem = await response.data;
+    //     return pilesItem;
+    // };
+    // const { data,isLoading,isError,error,isSuccess,status} = useQuery(['piles'],fetchPiles,{staleTime: 60000});
+    
+
+    useEffect(() => {
+        if (filter) {
+            setTypeFilter(filter);
+        } else {
+            setTypeFilter("men's clothing")
+        }
+    },[filter])
+
+
     const { products } = useContext(ProductContext);
 
     //\\ ************************ Filter by Type ************************ //\\
     // create value store typefilter which default value is "ทำค้าง"
+    // ใช้ location ดึงค่า filter set initial value จากหน้้าก่อน
+    // const initialFilter = { filter ? filter : "men's clothing" }
     const [typeFilter , setTypeFilter] = useState("men's clothing");
     // create store value which will recieve list of item after filtered by type
     const [itembyType , setItembyType] = useState(itemStore);
@@ -120,7 +150,9 @@ const Subpage = () => {
                             onChange={onSearchChangeHandler}
                         />
                         <Button id="btton-addon" onClick={ResetSearchField} variant="outline-primary">clear</Button>
-                        {/* <Button id="btton-addon" onClick={console.log(location)} variant="outline-primary">clear</Button> */}
+                        <Button id="btton-addon" onClick={console.log(location)} variant="outline-primary">local state</Button>
+                        <Button id="btton-addon" onClick={() => {console.log(filter)}} variant="outline-primary">query</Button>
+                        <Button id="btton-addon" onClick={() => {console.log(typeFilter)}} variant="outline-primary">type</Button>
                     </InputGroup>
                 </div>
                 {/* <FilterButton/> */}
@@ -170,7 +202,7 @@ const Subpage = () => {
                                     </tr>
                                 </thead>
                                 <tbody className="text-center">
-                                    {products.map((item,idx) => (
+                                    {products?.map((item,idx) => (
                                         
                                             <tr>
                                                 <td>
